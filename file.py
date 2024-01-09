@@ -10,7 +10,7 @@ import os
 import pickle 
 
 KEY = os.environ.get("GOOGL_API_KEY")
-llm=
+llm = OpenAI(temperature=0.4, openai_api_key=KEY)
 file_path = Path(r"D:\Data science\Data sample\Disease symptoms\symptom_Description.csv")
 loader = CSVLoader(file_path=file_path, encoding='utf-8')
 data = loader.load()
