@@ -3,14 +3,14 @@ from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
-from langchain.llms import OpenAI
+from langchain.llms import GooglePalm
 import streamlit as st
 from pathlib import Path
 import os
 import pickle 
 
-KEY = os.environ.get("GOOGL_API_KEY")
-llm = OpenAI(temperature=0.4, openai_api_key=KEY)
+KEY = os.environ.get("GOOGLE_API_KEY")
+llm = GooglePalm(temperature=0.4, openai_api_key=KEY)
 file_path = Path(r"D:\Data science\Data sample\Disease symptoms\symptom_Description.csv")
 loader = CSVLoader(file_path=file_path, encoding='utf-8')
 data = loader.load()
